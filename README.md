@@ -134,7 +134,7 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 ## Support
 
 <!-- markdownlint-disable MD033 -->
-<a href="paypal.me/ritayuxi">
+<a href="paypal.me/ritayuxi/3">
   <img alt="But Me a Coffee" src="https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0" width="200" />
 </a>
 
