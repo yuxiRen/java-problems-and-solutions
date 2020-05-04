@@ -7,11 +7,8 @@ public class Insertionsort {
         int marker = i;
         for (int j = i - 1; j >= 0; j--) {
           if (array[j] > array[marker]) {
-            System.out.print(array[marker]);
-            System.out.print(array[j]+" ");
             swap(array, marker, j);
             marker = j;
-            printArray(array);
           } else {
             break;
           }
