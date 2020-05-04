@@ -39,6 +39,7 @@ A collection of Java problems and solutions for studying algorithms.
 ## Problems
 
 ### Array
+- [Insertion Sort](Insertionsort.js)
 <!---
 - [Two Sum](src/array/two-sum.js)
 - [Three Sum](src/array/three-sum.js)
