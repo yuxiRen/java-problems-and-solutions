@@ -4,11 +4,10 @@ public class SelectionSort {
       return array;
     }
     for (int i = 0; i < array.length - 1; i++) {
-      int min = array[i];
       int minPosition = i;
       for (int j = i + 1; j < array.length; j++) {
-        if (array[j] < min) {
-          min = array[j];
+        if (array[j] < array[minPosition]) {
+          minPosition = array[j];
           minPosition = j;
         }
       }
