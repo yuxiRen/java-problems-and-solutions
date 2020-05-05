@@ -1,3 +1,9 @@
+//using Divide and Conquer algorithm
+//divide the array into two halves, and they call themselves repeatly until only one element in each array
+//merge these two sorted arrays
+
+//Time: O(NlogN)
+//Space: O(N)
 public class MergeSort {
 
     public int[] mergeSort(int[] array) {
@@ -33,6 +39,7 @@ public class MergeSort {
                 array[left++] = helper[rightIdx++];
             }
         }
+        //if there are elements remain at the left side, we need to copy them. However, if there are elements remain at the right side, there's no need to copy again because they are in the original array already
         while (leftIdx <= mid) {
             array[left++] = helper[leftIdx++];
         }
