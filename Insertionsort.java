@@ -16,26 +16,5 @@ public class Insertionsort {
       }
       return array;
     }
-  
-    private static void swap(int[] arr, int i, int j) {
-      int tmp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = tmp;
-    }
-    
-    public static void printArray(int[] nums) {
-      for (int num : nums) {
-        System.out.print(num);
-        System.out.print(' ');
-      }
-      System.out.println();
-    }
-
-    public static void main(String[] args) {
-        Insertionsort so = new Insertionsort();
-        int[] arr = new int[]{4,2,-3,6,1};
-        so.sort(arr);
-        printArray(arr);
-    }
-  }
+}
   
