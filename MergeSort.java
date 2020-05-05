@@ -39,7 +39,8 @@ public class MergeSort {
                 array[left++] = helper[rightIdx++];
             }
         }
-        //if there are elements remain at the left side, we need to copy them. However, if there are elements remain at the right side, there's no need to copy again because they are in the original array already
+        //if there are elements remain at the left side, we need to copy them. 
+        //However, if there are elements remain at the right side, there's no need to copy again because they are in the original array already
         while (leftIdx <= mid) {
             array[left++] = helper[leftIdx++];
         }
