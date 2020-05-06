@@ -1,5 +1,11 @@
 public class RelativeSortArray {
+    //Method1: counting sort
+    //Time: O(N)
+    //Space: O(1)
+    //precondition: A1[i] >= 0, A2[2] <= 1000
+    
     public int[] sortSpecial(int[] A1, int[] A2) {
+        //count[i]: the count# of i in array A1
         int[] count = new int[1001];
         for (int a1 : A1) {
           count[a1]++;
@@ -20,6 +26,10 @@ public class RelativeSortArray {
         return A1;
       }
 
+    //Method2: TreeMap
+    //Follow-up: What if this constraint 0 <= arr1[i], arr2[i] <= 1000 doesn't exist?
+    //Time: O(NlogN)
+    //Space: O(N)
       public int[] sortSpecial(int[] A1, int[] A2) {
         Map<Integer, Integer> map = new TreeMap<>();
         for (int a1 : A1) {
