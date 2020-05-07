@@ -1,3 +1,5 @@
+//Time: O(logN)
+//Space: O(1)
 public class BinarySearch {
     public int binarySearch(int[] array, int target) {
         if (array == null || array.length == 0) {
