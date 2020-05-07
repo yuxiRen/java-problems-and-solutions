@@ -1,3 +1,9 @@
+//Time: O(NlogN)
+//Space: O(1)
+//subarray[0, pivot - 1]: elements smaller than pivot
+//subarray[pivot + 1, end]: elements bigger than pivot
+//two subarray call quick sort recursively until there's only one element
+
 public class QuickSort {
     public int[] quickSort(int[] array) {
         if (array == null || array.length <= 1) {
@@ -12,6 +18,7 @@ public class QuickSort {
             return;
         }
         int pivotIdx = partition(arr, left, right);
+        //pivot is already at the appropriate position, so it should not be included in new recursion
         quickSort(arr, left, pivotIdx - 1);
         quickSort(arr, pivotIdx + 1, right);
     }
