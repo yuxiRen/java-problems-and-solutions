@@ -1,3 +1,5 @@
+//Time: O(N)
+//Space: O(1)
 public class FirstOccurrence {
     public int firstOccur(int[] array, int target) {
         if (array == null || array.length == 0) {
@@ -15,6 +17,7 @@ public class FirstOccurrence {
                 left = mid + 1;
             }
         }
+        //after left+1, right-1, we should notice ArrayIndexOutOfBoundsException 
         if (left < array.length && right >= 0 && array[right] == target) {
             return right;
         }
