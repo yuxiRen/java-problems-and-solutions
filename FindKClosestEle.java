@@ -1,6 +1,6 @@
 public class FindKClosestEle {
-    //Method1:
-    //Time: O(logN)
+    // Method1:
+    // Time: O(logN)
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result = new ArrayList<>();
         int left = 0;
@@ -24,8 +24,26 @@ public class FindKClosestEle {
         return result;
     }
 
-    //Method2:
-    //Time: O(N)
+    // Method2:
+    /*
+     * 用Binary Search找到一个长度为k的区间，并且区间x正好是区间的正中央。（如何表达区间？区间的leftBound） 通过移动left,
+     * right来移动A[mid]~A[mid] + k区间，最后达到x==A[mid]
+     * 
+     * case 1: x < A[mid]，此时区间需要左移 so right = mid
+     * -------x----A[mid]-----------------A[mid + k]----------
+     * 
+     * 当x > A[mid]时有多种情况 case 2: x - A[mid] < A[mid + k] - x, 区间需要左移 so right = mid
+     * 注意此时不怕x在[left,right]之外，因为新的[left,right]形成的[mid,mid + k]是有可能含有x的
+     * -------A[mid]----x-----------------A[mid + k]----------
+     * 
+     * case 3: x - A[mid] > A[mid + k] - x, 区间需要右移,并且mid肯定不在其中了，so left = mid+1
+     * -------A[mid]------------------x---A[mid + k]----------
+     * 
+     * case 4: x - A[mid] > A[mid + k] - x, 区间需要右移,并且mid肯定不在其中了，so left = mid+1
+     * -------A[mid]---------------------A[mid + k]----x------
+     */
+
+    // Time: O(N)
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result = new ArrayList<>();
         int left = 0;
