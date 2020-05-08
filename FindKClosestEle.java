@@ -61,4 +61,29 @@ public class FindKClosestEle {
         return result;
     }
 
+    // Method3:
+    // Time: O(logN)
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        List<Integer> result = new ArrayList<>();
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] < x) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+
+        for (int i = 0; i < k; i++) {
+            if (right >= arr.length || (left >= 0 && Math.abs(arr[left] - x) <= Math.abs(arr[right] - x))) {
+                result.add(0, arr[left--]);
+            } else {
+                result.add(arr[right++]);
+            }
+        }
+
+        return result;
+    }
 }
