@@ -1,5 +1,6 @@
 public class FindKClosestEle {
     //Method1:
+    //Time: O(logN)
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result = new ArrayList<>();
         int left = 0;
@@ -24,6 +25,7 @@ public class FindKClosestEle {
     }
 
     //Method2:
+    //Time: O(N)
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result = new ArrayList<>();
         int left = 0;
