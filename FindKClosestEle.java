@@ -1,4 +1,5 @@
 public class FindKClosestEle {
+    //Method1:
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result = new ArrayList<>();
         int left = 0;
@@ -21,4 +22,23 @@ public class FindKClosestEle {
         }
         return result;
     }
+
+    //Method2:
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        List<Integer> result = new ArrayList<>();
+        int left = 0;
+        int right = arr.length - 1;
+        for (int i = 0; i < arr.length - k; i++) {
+            if (Math.abs(arr[left] - x) <= Math.abs(arr[right] - x)) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        while (left <= right) {
+            result.add(arr[left++]);
+        }
+        return result;
+    }
+
 }
