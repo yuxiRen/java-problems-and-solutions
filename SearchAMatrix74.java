@@ -1,5 +1,5 @@
 //method1: convert the 2D array to 1D array and do binary search
-//Time: O(N)
+//Time: O(N*M)
 public class SearchAMatrix74 {
     public int[] search(int[][] matrix, int target) {
         int[] result = new int[]{-1, -1};
