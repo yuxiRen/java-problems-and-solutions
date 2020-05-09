@@ -4,7 +4,11 @@ public class SearchInUnknownSizedSortedArr {
 *    public Integer get(int index);
 *  }
 */
-
+//Time: O(logN)
+//jump out: 2^1 + 2^2 +...+ 2^(x+1) = 2^(x+2) - 1 = N
+//x = logN
+//jump in: 2^(x+1) - 2^x = N
+//x = logN
 public class Solution {
     public int search(Dictionary dict, int target) {
       int left = 0;
