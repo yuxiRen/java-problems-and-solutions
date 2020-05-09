@@ -77,7 +77,8 @@ public class FindKClosestEle {
         }
 
         for (int i = 0; i < k; i++) {
-            if (right >= arr.length || (left >= 0 && Math.abs(arr[left] - x) <= Math.abs(arr[right] - x))) {
+            if (right >= arr.length || 
+               (left >= 0 && Math.abs(arr[left] - x) <= Math.abs(arr[right] - x))) {
                 result.add(0, arr[left--]);
             } else {
                 result.add(arr[right++]);
