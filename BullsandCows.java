@@ -1,3 +1,5 @@
+//Time: O(N)
+//Space: O(1)
 //count[i]++: read from secret
 //count[i]--: read from secret
 public class BullsandCows {
