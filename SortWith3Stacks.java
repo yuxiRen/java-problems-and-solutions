@@ -1,3 +1,5 @@
+//like merge sort, using recursion
+//Time: O(NlogN)
 public class SortWith3Stacks {
     public void sort(LinkedList<Integer> s1) {
         LinkedList<Integer> s2 = new LinkedList<Integer>();
