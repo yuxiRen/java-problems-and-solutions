@@ -1,3 +1,9 @@
+/*
+step1. find the middle node
+step2. delink two half lists
+step3. reverse the second list
+step4. merge two lists together
+*/
 public class  ReOrderList {
     public ListNode reorder(ListNode head) {
         if (head == null || head.next == null) {
