@@ -18,7 +18,9 @@ public class PartitionLinkedList {
           }
           head = head.next;
         }
+        //connect two partitions
         curSmall.next = big.next;
+        //unlink the last node in big partition
         curBig.next = null;
         return small.next;
       }
