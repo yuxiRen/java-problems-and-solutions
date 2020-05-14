@@ -43,4 +43,30 @@ public class RainbowSort {
     }
     return array;
   }
+
+  //followup: Given an array of balls with k different colors denoted by numbers 1- k, 
+  //sort the balls.
+  public int[] rainbowSortIII(int[] array, int k) {
+    sort(array, 1, k, 0, array.length - 1);
+    return array;
+  }
+  private void sort(int[] array, int colorFrom, int colorTo, int left, int right) {
+    if (left >= right || colorFrom == colorTo) {
+      return;
+    }
+    int l = left;
+    int r = right;
+    int mid = (colorTo + colorFrom) / 2;
+    while (l <= r) {
+      if (array[l] <= mid) {
+        l++;
+      } else if (array[r] > mid) {
+        r--;
+      } else {
+        swap(array, l++, r--);
+      }
+    }
+    sort(array, colorFrom, mid, left , l-1);
+    sort(array, mid + 1, colorTo, r+1, right);
+  }
 }
