@@ -1,4 +1,5 @@
 public class BinaryTreeInorderTraversal {
+    //Time: O(N), Space: O(Tree's Height)
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
