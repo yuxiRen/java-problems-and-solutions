@@ -42,7 +42,7 @@ public class RainbowSort {
 
   //followup: Given an array of balls with k different colors denoted by numbers 1- k, 
   //sort the balls.
-  
+
   //method1: quick sort
   //Time:O(NlogK)
   public int[] rainbowSortIII(int[] array, int k) {
@@ -67,5 +67,26 @@ public class RainbowSort {
     }
     sort(array, colorFrom, mid, left , l-1);
     sort(array, mid + 1, colorTo, r+1, right);
+  }
+
+  //method2: convert thr problem to sorting two colors for k/2 times.
+  //Time: O(kN)
+  public int[] rainbowSortIII(int[] array, int k) {
+    int left = 0;
+    int right = array.length - 1;
+    for (int i = 1; i <= k / 2; i++) {
+      int leftColor = i;
+      int rightColor = k + 1 - i;
+      int idx = left;
+      while (idx <= right) {
+        if (array[idx] == leftColor) {
+          swap(array, left++, idx);
+        } else if (array[idx] == rightColor) {
+          swap(array, right--, idx--);
+        }
+        idx++;
+      }
+    }
+    return array;
   }
 }
