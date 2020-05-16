@@ -1,4 +1,7 @@
 public class BalancedBinaryTree {
+    //use -1 to denote the tree is not balanced.
+    //>=0 value means the tree is balanced and it is the height of the tree
+
     public boolean isBalanced(TreeNode root) {
         if (root == null) {
           return true;
