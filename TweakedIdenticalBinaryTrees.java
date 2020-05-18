@@ -1,4 +1,5 @@
 public class TweakedIdenticalBinaryTrees {
+    //Time: O(4^(logN)) = O(N^2)
     public boolean isTweakedIdentical(TreeNode one, TreeNode two) {
         if (one == null && two == null) {
           return true;
