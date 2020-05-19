@@ -1,5 +1,6 @@
 //Time: O(N)
 //Space: O(1)
+
 public class FirstOccurrence {
     public int firstOccur(int[] array, int target) {
         if (array == null || array.length == 0) {
