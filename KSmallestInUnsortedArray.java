@@ -1,5 +1,8 @@
 import java.util.*;
 public class KSmallestInUnsortedArray {
+    //method1. maxHeap
+    //Time: O(Nlogk)
+    //Space: O(k)
     public static int[] kSmallest(int[] array, int k) {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((x, y)->y-x);
         for (int i = 0; i < array.length; i++) {
