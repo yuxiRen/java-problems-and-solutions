@@ -30,6 +30,11 @@ public class KSmallestInUnsortedArray {
     }
 
     //metohd2: quick select
+    /*Time:
+    worst: O(N^2)
+    average:O(N) (N + N/2 + N/4 +...+ find k) = O(N)
+    Space: O(1)*/
+
     public int[] kSmallest(int[] array, int k) {
         int l = 0;
         int r = array.length - 1;
