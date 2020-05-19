@@ -17,6 +17,7 @@ public class FirstOccurrence {
             } else {
                 left = mid + 1;
             }
+
         }
         //after left+1, right-1, we should notice ArrayIndexOutOfBoundsException 
         if (left < array.length && right >= 0 && array[right] == target) {
