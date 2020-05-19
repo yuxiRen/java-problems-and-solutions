@@ -18,6 +18,11 @@ public class KthLargestinArray {
     }
 
     //method2: Quick Select
+    /*Time:
+    worst: O(N^2)
+    average:O(N) (N + N/2 + N/4 +...+ find k) = O(N)
+    Space: O(1)*/
+
     public int findKthLargest(int[] nums, int k) {
         int left = 0;
         int right = nums.length - 1;
