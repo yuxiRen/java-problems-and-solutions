@@ -1,4 +1,7 @@
 public class KthLargestinArray {
+    //method1: Heap
+    //Time: O(Nlogk)
+    //Space: O(k)
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int n : nums) {
