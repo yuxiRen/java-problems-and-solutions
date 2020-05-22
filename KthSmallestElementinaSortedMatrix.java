@@ -1,5 +1,7 @@
 public class KthSmallestElementinaSortedMatrix {
     class Solution {
+        //Time: O(klogN)
+        //Space: O(N)
         public int kthSmallest(int[][] matrix, int k) {
             int row = matrix.length;
             int col = matrix[0].length;
