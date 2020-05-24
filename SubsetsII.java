@@ -13,9 +13,13 @@ public class SubsetsII {
             res.add(new ArrayList<Integer>(cur));
             return;
         }
+        //add nums[idx] at current level
         cur.add(nums[idx]);
         dfs(nums, idx + 1, cur, res);
         cur.remove(cur.size() - 1);
+
+        //don't add nums[idx] at current level
+        //skip all the consecutive and duplicate elements
         while (idx < nums.length - 1 && nums[idx] == nums[idx + 1]) {
             idx++;
         }
