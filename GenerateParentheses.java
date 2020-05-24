@@ -1,4 +1,8 @@
 public class GenerateParentheses {
+//    level number: 2N
+//    each level has 2 states: add ( or add )
+//    time complexity: O(2^2N)
+
     public List<String> validParentheses(int n) {
         List<String> res = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
