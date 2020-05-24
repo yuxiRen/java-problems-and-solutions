@@ -1,3 +1,4 @@
+//Time: O(2^N)
 public class Subsets {
     public List<String> subSets(String set) {
         List<String> res = new ArrayList<>();
