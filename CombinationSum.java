@@ -33,6 +33,8 @@ public class CombinationSum {
         }
     }
     //method2:
+    //Time: O(N^k)
+    //Space: O(k)
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
         dfs(candidates, target, new ArrayList<Integer>(), res, 0);
