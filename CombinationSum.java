@@ -2,6 +2,7 @@ public class CombinationSum {
     //candidates#: N, target: K
     //Time: O(K^N)
     //Space: O(N)
+    //method1:
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
         dfs(candidates, target, new ArrayList<Integer>(), res, 0);
@@ -31,4 +32,22 @@ public class CombinationSum {
             cur.remove(cur.size() - 1);
         }
     }
+    //method2:
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        dfs(candidates, target, new ArrayList<Integer>(), res, 0);
+        return res;
+    }
+    private void dfs(int[] candidates, int balance, List<Integer> cur, List<List<Integer>> res, int idx) {
+        if (balance == 0) {
+            res.add(new ArrayList<Integer>(cur));
+            return;
+        }
+        for (int i = idx; i < candidates.length && candidates[i] <= balance; i++) {
+            cur.add(candidates[i]);
+            dfs(candidates, balance - candidates[i], cur, res, i);
+            cur.remove(cur.size() - 1);
+        }
+    }
+
 }
