@@ -1,5 +1,7 @@
 public class CombinationSum {
-
+    //candidates#: N, target: K
+    //Time: O(K^N)
+    //Space: O(N)
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
         dfs(candidates, target, new ArrayList<Integer>(), res, 0);
