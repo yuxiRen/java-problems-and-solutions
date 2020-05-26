@@ -45,7 +45,10 @@ public class CombinationSum {
             res.add(new ArrayList<Integer>(cur));
             return;
         }
-        for (int i = idx; i < candidates.length && candidates[i] <= balance; i++) {
+        if (balance < 0) {
+            return;
+        }
+        for (int i = idx; i < candidates.length; i++) {
             cur.add(candidates[i]);
             dfs(candidates, balance - candidates[i], cur, res, i);
             cur.remove(cur.size() - 1);
