@@ -3,9 +3,7 @@ public class MissingNumber {
     time: O(N)
     space: O(N)
      */
-     */
-    */
-     */
+
     public int missingNumber(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int n : nums) {
