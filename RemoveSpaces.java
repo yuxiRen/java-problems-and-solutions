@@ -7,7 +7,7 @@ public class RemoveSpaces {
             if (fast == 0 && arr[fast] == ' ') {
                 while (fast < arr.length && arr[fast] == ' ') {
                     fast++;
-                }
+                } 
             } else if (arr[fast] == ' ' && (fast == arr.length - 1 || arr[fast+1] == ' ')) {
                 fast++;
             } else {
