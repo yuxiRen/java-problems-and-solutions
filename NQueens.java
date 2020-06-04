@@ -1,3 +1,4 @@
+//Time: O(N^N)
 public class NQueens {
     public List<List<Integer>> nqueens(int n) {
         List<List<Integer>> res = new ArrayList<>();
