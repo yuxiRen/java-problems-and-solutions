@@ -29,4 +29,31 @@ public class SpiralOrderTraverseI {
         }
         recursiveTraverse(matrix, offset + 1, size - 2, res);
     }
+
+    //method2. iterative traversal
+    public List<Integer> spiral(int[][] matrix) {
+        List<Integer> res = new ArrayList<>();
+        int start = 0;
+        int end = matrix.length - 1;
+        while (start < end) {
+            for (int i = start; i < end; i++) {
+                res.add(matrix[start][i]);
+            }
+            for (int i = start; i < end; i++) {
+                res.add(matrix[i][end]);
+            }
+            for (int i = end; i > start; i--) {
+                res.add(matrix[end][i]);
+            }
+            for (int i = end; i > start; i--) {
+                res.add(matrix[i][start]);
+            }
+            start++;
+            end--;
+        }
+        if (start == end) {
+            res.add(matrix[start][start]);
+        }
+        return res;
+    }
 }
