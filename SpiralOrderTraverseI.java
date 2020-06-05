@@ -1,6 +1,7 @@
 //Traverse an N * N 2D array in spiral order clock-wise starting from the top left corner.
 // Return the list of traversal sequence.
 public class SpiralOrderTraverseI {
+    //method1. recursive traversal
     public List<Integer> spiral(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
         recursiveTraverse(matrix, 0, matrix.length, res);
