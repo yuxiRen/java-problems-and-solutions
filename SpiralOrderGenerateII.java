@@ -37,4 +37,43 @@ public class SpiralOrderGenerateII {
         }
         recursiveGenerate(m - 2, n - 2, offset + 1, num, res);
     }
+    //method2: iterative generate
+    public int[][] spiralGenerate(int m, int n) {
+        int[][] res = new int[m][n];
+        int up = 0;
+        int down = m - 1;
+        int left = 0;
+        int right = n - 1;
+        int num = 1;
+        while (up < down && left < right) {
+            for (int i = left; i < right; i++) {
+                res[up][i] = num++;
+            }
+            for (int i = up; i < down; i++) {
+                res[i][right] = num++;
+            }
+            for (int i = right; i > left; i--) {
+                res[down][i] = num++;
+            }
+            for (int i = down; i > up; i--) {
+                res[i][left] = num++;
+            }
+            left++;
+            right--;
+            up++;
+            down--;
+        }
+        if (left == right) {
+            for (int i = up; i <= down; i++) {
+                res[i][left] = num++;
+            }
+        }
+        if (up == down) {
+            for (int i = left; i <= right; i++) {
+                res[up][i] = num++;
+            }
+        }
+        return res;
+    }
+
 }
