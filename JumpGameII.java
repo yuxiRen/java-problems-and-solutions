@@ -1,4 +1,5 @@
 public class JumpGameII {
+    //method1: dynamic programming
     public int minJump(int[] array) {
         int[] minJump = new int[array.length];
         minJump[0] = 0;
@@ -14,4 +15,22 @@ public class JumpGameII {
         }
         return minJump[minJump.length - 1];
     }
+    //method2:greedy
+    public int minJump(int[] array) {
+        int jump = 0;
+        int curMax = 0;
+        int next = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (i > curMax) {
+                if (curMax == next) {
+                    return -1;
+                }
+                jump++;
+                curMax = next;
+            }
+            next = Math.max(next, array[i] + i);
+        }
+        return jump;
+    }
+
 }
