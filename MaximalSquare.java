@@ -6,6 +6,7 @@ public class MaximalSquare {
 //
 //    induction rule:
 //    M[i][j] = MIN(M[i - 1][j - 1], M[i - 1][j], M[i][j - 1]) + 1
+//    Time: O(N ^ 2)
 
     public int largest(int[][] matrix) {
         int N = matrix.length;
