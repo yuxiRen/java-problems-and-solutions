@@ -1,4 +1,12 @@
 public class MaximalSquare {
+//    base case:
+//    M[i][j] = input[i][j] (i == 0 || j == 0)
+//    state:
+//    M[i][j] represents the largest square of 1’s with right bottom corner as matrix[i][j]
+//
+//    induction rule:
+//    M[i][j] = MIN(M[i - 1][j - 1], M[i - 1][j], M[i][j - 1]) + 1
+
     public int largest(int[][] matrix) {
         int N = matrix.length;
         int[][] largest = new int[N][N];
