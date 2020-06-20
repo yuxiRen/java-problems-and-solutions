@@ -14,7 +14,9 @@ public class GeneralizedReservoirSampling {
         }
         count++;
         int random = (int)(Math.random() * count);
+        //the probability of set the new value into sample is k / n
         if (random < k) {
+            //the probability of pick the one of the old sample to exchange with new value is 1/k
             sample.set(random, value);
         }
     }
