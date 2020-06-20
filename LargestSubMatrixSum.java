@@ -3,12 +3,14 @@ public class LargestSubMatrixSum {
         int res = Integer.MIN_VALUE;
         int row = matrix.length;
         int col = matrix[0].length;
-
+        //traverse submatrix from the i-th row to the j-th row
         for (int i = 0; i < row; i++) {
-            int[] cur = new int[col];
+            int[] curSum = new int[col];
             for (int j = i; j < row; j++) {
-                add(cur, matrix[j]);
-                res = Math.max(res, max(cur));
+                //add the j-th row into prev sum
+                add(curSum, matrix[j]);
+                //find subarray's largest sum of curSum
+                res = Math.max(res, max(curSum));
             }
         }
         return res;
