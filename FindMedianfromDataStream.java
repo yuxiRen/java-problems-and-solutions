@@ -15,7 +15,7 @@ public class FindMedianfromDataStream {
         } else {
             smallHalf.offer(num);
         }
-        //when bigHalf.size()==smallHalf.size() or    bigHalf.size()==smallHalf.size()+1, don’t need to move
+        //when bigHalf.size()==smallHalf.size() or bigHalf.size()==smallHalf.size()+1, don’t need to move
         if (bigHalf.size() > smallHalf.size() + 1) {
             smallHalf.offer(bigHalf.poll());
         } else if (smallHalf.size() > bigHalf.size()) {
@@ -24,7 +24,9 @@ public class FindMedianfromDataStream {
     }
 
     public double findMedian() {
-        if (smallHalf.size() == bigHalf.size()) {
+        if (bigHalf.isEmpty()) {
+            return 0.0;
+        } else if (smallHalf.size() == bigHalf.size()) {
             return (smallHalf.peek() + bigHalf.peek()) / 2.0;
         }
         return (double)bigHalf.peek();
