@@ -31,5 +31,40 @@ public class FindMedianfromDataStream {
         }
         return (double)bigHalf.peek();
     }
+    //Follow up1:If all integer numbers from the stream are between 0 and 100, how would you optimize it?
+    private int[] count;
+    private int curCount;
+    public MedianFinder() {
+        this.count = new int[100];
+        this.curCount = 0;
+    }
 
+    public void addNum(int num) {
+        count[num]++;
+        curCount++;
+    }
+
+    public double findMedian(int[] count,int curCount) {
+        int tmpCount = 0;
+        int i = 0;
+        if (curCount % 2 == 1) {
+            while (tmpCount < curCount / 2 + 1) {
+                tmpCount += count[i++];
+            }
+            return i-1;
+        } else {
+            while (tmpCount < curCount / 2) {
+                tmpCount += count[i++];
+            }
+            if (tmpCount == curCount / 2) {
+                int j = i;
+                while (count[j] == 0) {
+                    j++;
+                }
+                return (i - 1 + j) / 2.0;
+            } else {
+                return (double)(i - 1);
+            }
+        }
+    }
 }
