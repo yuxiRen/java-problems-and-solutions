@@ -13,4 +13,24 @@ public class TwoSum {
         }
         return res;
     }
+
+    //sorted
+    public int[] twoSum(int[] numbers, int target) {
+        int i = 0;
+        int j = numbers.length - 1;
+        int[] res = new int[2];
+        while (i < j) {
+            int sum = numbers[i] + numbers[j];
+            if (sum == target) {
+                res[0] = i;
+                res[1] = j;
+                return res;
+            } else if (sum < target) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
 }
