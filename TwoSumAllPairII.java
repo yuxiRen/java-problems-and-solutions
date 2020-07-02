@@ -1,5 +1,5 @@
 public class TwoSumAllPairII {
-    //method1: time: O(N) space: O(1)
+    //method1: time: O(NlogN) space: O(1)
     public List<List<Integer>> allPairs(int[] array, int target) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(array);
