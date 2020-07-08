@@ -25,8 +25,7 @@ public class TrappingRainWater {
             while (!stack.isEmpty() && height[i] >= height[stack.peek()]) {
                 int curIdx = stack.pop();
                 if (!stack.isEmpty()) {
-                    int cur = (Math.min(height[i], height[stack.peek()]) - height[curIdx])*(i-stack.peek()-1);
-                    sum += Math.max(0,cur) ;
+                    sum += (Math.min(height[i], height[stack.peek()]) - height[curIdx])*(i-stack.peek()-1);
                 }
             }
             stack.push(i);
