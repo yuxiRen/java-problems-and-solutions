@@ -1,4 +1,5 @@
 public class TrappingRainWater {
+    //method1
     public int trap(int[] height) {
         int n = height.length;
         int[] leftMax = new int[n];
@@ -15,5 +16,21 @@ public class TrappingRainWater {
         }
         return sum;
     }
-
+    //method2
+    public int trap(int[] height) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int sum = 0;
+        stack.push(0);
+        for (int i = 1; i < height.length; i++) {
+            while (!stack.isEmpty() && height[i] >= height[stack.peek()]) {
+                int curIdx = stack.pop();
+                if (!stack.isEmpty()) {
+                    int cur = (Math.min(height[i], height[stack.peek()]) - height[curIdx])*(i-stack.peek()-1);
+                    sum += Math.max(0,cur) ;
+                }
+            }
+            stack.push(i);
+        }
+        return sum;
+    }
 }
