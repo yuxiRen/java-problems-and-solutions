@@ -14,5 +14,21 @@ public class HouseRobber {
         }
         return Math.max(dp[n - 1][norob], dp[n - 1][rob]);
     }
+    //optimizing
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int lastNoRob = 0;
+        int lastRob = nums[0];
+        int n = nums.length;
+        for (int i = 1; i < n; i++) {
+            int tmplastNoRob = lastNoRob;
+            int tmplastRob = lastRob;
+            lastNoRob = Math.max(tmplastNoRob, tmplastRob);
+            lastRob = tmplastNoRob + nums[i];
+        }
+        return Math.max(lastNoRob, lastRob);
+    }
 }
 
