@@ -1,4 +1,5 @@
 public class InsertInterval {
+    //method1:
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> res = new ArrayList<>();
         List<Point> points = new ArrayList<>();
@@ -36,5 +37,28 @@ public class InsertInterval {
             this.position = p;
             this.flag = f;
         }
+    }
+
+    //method2:
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        Arrays.sort(intervals, (x, y) -> x[0] - y[0]);
+        List<int[]> result = new ArrayList<>();
+        int idx = 0;
+        while (idx < intervals.length && intervals[idx][1] < newInterval[0]) {
+            result.add(intervals[idx++]);
+        }
+        int newStart = newInterval[0];
+        int newEnd = newInterval[1];
+        while (idx < intervals.length && intervals[idx][0] <= newInterval[1]) {
+            newStart = Math.min(newStart, intervals[idx][0]);
+            newEnd = Math.max(newEnd, intervals[idx][1]);
+            idx++;
+        }
+        result.add(new int[]{newStart, newEnd});
+        while (idx < intervals.length) {
+            result.add(intervals[idx++]);
+        }
+        return result.toArray(new int[result.size()][]);
+
     }
 }
