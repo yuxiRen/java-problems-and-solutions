@@ -10,14 +10,11 @@ public class MergeIntervals {
             points.add(new Point(interval[0], 1));
             points.add(new Point(interval[1], -1));
         }
-        Collections.sort(points, new Comparator<Point>() {
-            @Override
-            public int compare(Point p1, Point p2) {
-                if (p1.position == p2.position) {
-                    return p2.flag - p1.flag;
-                }
-                return p1.position - p2.position;
+        Collections.sort(points, (p1, p2) -> {
+            if (p1.position == p2.position) {
+                return p2.flag - p1.flag;
             }
+            return p1.position - p2.position;
         });
         int start = points.get(0).position;
         int count = 0;
