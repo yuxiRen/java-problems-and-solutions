@@ -1,4 +1,5 @@
 public class MergeIntervals {
+    //method1
     public int[][] merge(int[][] intervals) {
         if (intervals.length <= 1) {
             return intervals;
@@ -9,7 +10,7 @@ public class MergeIntervals {
             points.add(new Point(interval[0], 1));
             points.add(new Point(interval[1], -1));
         }
-        Collections.sort(points, new Comparator<Point>(){
+        Collections.sort(points, new Comparator<Point>() {
             @Override
             public int compare(Point p1, Point p2) {
                 if (p1.position == p2.position) {
@@ -32,9 +33,34 @@ public class MergeIntervals {
         return result.toArray(new int[result.size()][]);
     }
 
+    //method2
+    public int[][] merge(int[][] intervals) {
+        if (intervals.length <= 1) {
+            return intervals;
+        }
+        Arrays.sort(intervals, (x, y) -> x[0] - y[0]);
+        List<int[]> result = new ArrayList<>();
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+        for (int[] interval : intervals) {
+            //merge
+            if (interval[0] <= end) {
+                end = Math.max(end, interval[1]);
+            } else {
+                result.add(new int[]{start, end});
+                start = interval[0];
+                end = interval[1];
+            }
+        }
+        result.add(new int[]{start, end});
+
+        return result.toArray(new int[result.size()][]);
+    }
+
     class Point {
         int position;
         int flag;
+
         Point(int p, int f) {
             this.position = p;
             this.flag = f;
