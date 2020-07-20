@@ -2,41 +2,31 @@ public class InsertInterval {
     //method1:
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> res = new ArrayList<>();
-        List<Point> points = new ArrayList<>();
+        List<int[]> points = new ArrayList<>();
         for (int[] interval : intervals) {
-            points.add(new Point(interval[0], 1));
-            points.add(new Point(interval[1], -1));
+            points.add(new int[]{interval[0], 1});
+            points.add(new int[]{interval[1], -1});
         }
-        points.add(new Point(newInterval[0], 1));
-        points.add(new Point(newInterval[1], -1));
+        points.add(new int[]{newInterval[0], 1});
+        points.add(new int[]{newInterval[1], -1});
         Collections.sort(points, (p1, p2) -> {
-            if (p1.position == p2.position) {
-                return p2.flag - p1.flag;
+            if (p1[0] == p2[0]) {
+                return p2[1] - p1[1];
             }
-            return p1.position - p2.position;
+            return p1[0] - p2[0];
         });
         int count = 0;
-        int start = points.get(0).position;
+        int start = points.get(0)[0];
         for (int i = 0; i < points.size(); i++) {
-            count += points.get(i).flag;
+            count += points.get(i)[1];
             if (count == 0) {
-                res.add(new int[]{start, points.get(i).position});
+                res.add(new int[]{start, points.get(i)[0]});
                 if (i < points.size() - 1) {
-                    start = points.get(i + 1).position;
+                    start = points.get(i + 1)[0];
                 }
             }
         }
         return res.toArray(new int[res.size()][2]);
-    }
-
-    class Point {
-        int position;
-        int flag;
-
-        Point(int p, int f) {
-            this.position = p;
-            this.flag = f;
-        }
     }
 
     //method2:
