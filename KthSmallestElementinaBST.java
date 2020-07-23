@@ -1,7 +1,7 @@
 public class KthSmallestElementinaBST {
     public int kthSmallest(TreeNode root, int k) {
         Deque<TreeNode> stack = new ArrayDeque<>();
-        while(root != null || !stack.isEmpty()) {
+        while (root != null || !stack.isEmpty()) {
             if (root != null) {
                 stack.push(root);
                 root = root.left;
@@ -10,7 +10,6 @@ public class KthSmallestElementinaBST {
                 if (--k == 0) {
                     return root.val;
                 }
-
                 root = root.right;
             }
         }
