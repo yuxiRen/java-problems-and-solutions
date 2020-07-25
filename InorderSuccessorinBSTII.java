@@ -14,6 +14,7 @@ public class InorderSuccessorinBSTII {
             return p.parent;
         }
     }
+
     private Node leftMost(Node node) {
         while (node.left != null) {
             node = node.left;
