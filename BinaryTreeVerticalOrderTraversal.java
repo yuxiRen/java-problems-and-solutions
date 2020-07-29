@@ -1,4 +1,5 @@
 public class BinaryTreeVerticalOrderTraversal {
+    //BFS time: O(N), space: O(N)
     public List<List<Integer>> verticalOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
