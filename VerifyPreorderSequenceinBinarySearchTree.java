@@ -25,7 +25,6 @@ public class VerifyPreorderSequenceinBinarySearchTree {
     public static boolean verifyPreorder(int[] preorder) {
         //descending stack
         Stack<Integer> stack = new Stack<>();
-
         int min = Integer.MIN_VALUE;
         for (int num : preorder) {
             //if the right subtree bigger than root, return false
@@ -39,6 +38,21 @@ public class VerifyPreorderSequenceinBinarySearchTree {
                 min = stack.pop();
             }
             stack.push(num);
+        }
+        return true;
+    }
+    //method3.
+    public boolean verifyPreorder(int[] preorder) {
+        int end = -1;
+        int min = Integer.MIN_VALUE;
+        for (int p : preorder) {
+            if (p < min) {
+                return false;
+            }
+            while (end >= 0 && p > preorder[end]) {
+                min = preorder[end--];
+            }
+            preorder[++end] = p;
         }
         return true;
     }
