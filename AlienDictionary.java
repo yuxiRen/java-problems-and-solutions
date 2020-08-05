@@ -13,7 +13,6 @@ public class AlienDictionary {
         }
         while (!queue.isEmpty()) {
             char cur = queue.poll();
-
             sb.append(cur);
             if (graph.containsKey(cur)) {
                 Set<Character> next = graph.get(cur);
