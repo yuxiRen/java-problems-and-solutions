@@ -1,4 +1,5 @@
 public class FindEventualSafeStates {
+    //method1
     public List<Integer> eventualSafeNodes(int[][] graph) {
         int n = graph.length;
         int[] outdegree = new int[n];
@@ -36,5 +37,32 @@ public class FindEventualSafeStates {
             }
         }
         return res;
+    }
+    //method2
+    public List<Integer> eventualSafeNodes(int[][] graph) {
+        List<Integer> res = new ArrayList<>();
+        int[] visited = new int[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            if (dfs(i, graph, visited)) {
+                res.add(i);
+            }
+        }
+        return res;
+    }
+    private boolean dfs(int cur, int[][] graph, int[] visited) {
+        if (visited[cur] == 1) {
+            return true;
+        }
+        if (visited[cur] == 2) {
+            return false;
+        }
+        visited[cur] = 2;
+        for (int next : graph[cur]) {
+            if (!dfs(next, graph, visited)) {
+                return false;
+            }
+        }
+        visited[cur] = 1;
+        return true;
     }
 }
