@@ -3,6 +3,7 @@ public class FriendCircles {
     private int[] rank;
     public int findCircleNum(int[][] M) {
         int n = M.length;
+        int res = n;
         root = new int[n];
         rank = new int[n];
         for (int i = 0; i < n; i++) {
@@ -13,15 +14,11 @@ public class FriendCircles {
             for (int j = i + 1; j < n; j++) {
                 if (M[i][j] == 1 && find(i) != find(j)) {
                     union(i, j);
+                    res--;
                 }
             }
         }
-        Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < n; i++) {
-            root[i] = find(i);
-            set.add(root[i]);
-        }
-        return set.size();
+        return res;
     }
     private int find(int x) {
         if (x != root[x]) {
