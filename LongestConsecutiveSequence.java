@@ -13,17 +13,19 @@ public class LongestConsecutiveSequence {
             }
             parent[i] = i;
             size[i] = 1;
-            if (idx.containsKey(nums[i] - 1)) {
-                union(i, idx.get(nums[i] - 1));
+            Integer prev = idx.get(nums[i] - 1);
+            if (prev != null && find(i) != find(prev)) {
+                union(i, prev);
             }
-            if (idx.containsKey(nums[i] + 1)) {
-                union(i, idx.get(nums[i] + 1));
+            Integer next = idx.get(nums[i] + 1);
+            if (next != null && find(i) != find(next)) {
+                union(i, next);
             }
             idx.put(nums[i], i);
         }
         int res = 0;
-        for (int i = 0; i < n; i++) {
-            res = Math.max(size[i], res);
+        for (int s : size) {
+            res = Math.max(s, res);
         }
         return res;
     }
