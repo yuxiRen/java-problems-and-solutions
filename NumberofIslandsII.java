@@ -2,7 +2,6 @@ public class NumberofIslandsII {
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         int[] parent = new int[m * n];
         Arrays.fill(parent, -1);
-
         List<Integer> res = new ArrayList<>();
         int count = 0;
         int[][] dir = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
